@@ -4,6 +4,7 @@
   publish = "packages/ui/.next"  # Output directory for Next.js after the build
 
 [build.environment]
+  NODE_VERSION = "16.14.0"
   NODE_ENV = "production"
   # Add any required environment variables here, including database connections, API keys, etc.
   SENDGRID_API_KEY = "your-sendgrid-api-key"
@@ -19,6 +20,5 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[build.environment]
-  NODE_VERSION = "16.14.0"
+
 
