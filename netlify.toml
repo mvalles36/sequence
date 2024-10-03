@@ -1,2 +1,4 @@
-[build.environment]
-NODE_VERSION = "16.10.0"
+[build]
+base = "packages/website"
+publish = "packages/website/build"
+command = "yarn build"
