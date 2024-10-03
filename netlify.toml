@@ -1,12 +1,8 @@
 [build]
-  base = "packages/ui" 
-  publish = "packages/ui/out" 
-  command = "yarn install && yarn build" 
+  base = "packages/ui"
+  command = "yarn install && yarn build"
+  publish = "packages/ui/.next"
+  functions = "packages/ui/netlify/functions"
+
 [build.environment]
-  NODE_VERSION = "16.14.0"
-
-[functions]
-  directory = "netlify/functions" 
-
-[dev]
-  command = "yarn bootstrap && yarn dev"
+  NODE_VERSION = "16.14.0"  # or whichever version you're using
