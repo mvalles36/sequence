@@ -5,4 +5,4 @@
   functions = "packages/ui/netlify/functions"
 
 [build.environment]
-  NODE_VERSION = "18"  
+  NODE_VERSION = "16"  
