@@ -1,24 +1,12 @@
 [build]
-  base = "packages/ui"  # Points to the `ui` package directory
-  command = "yarn bootstrap && yarn build"  # Ensures dependencies are installed and built
-  publish = "packages/ui/.next"  # Output directory for Next.js after the build
-
+  base = "packages/ui" 
+  publish = "packages/ui/out" 
+  command = "yarn install && yarn build" 
 [build.environment]
   NODE_VERSION = "16.14.0"
-  NODE_ENV = "production"
-  # Add any required environment variables here, including database connections, API keys, etc.
-  SENDGRID_API_KEY = "your-sendgrid-api-key"
-  POSTGRES_DB = "your-db-name"
-  POSTGRES_USER = "your-db-user"
-  POSTGRES_PASSWORD = "your-db-password"
-  POSTGRES_HOST = "your-db-host"
-  POSTGRES_PORT = "5432"
 
-[build.processing]
-  skip_processing = true
+[functions]
+  directory = "netlify/functions" 
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-
-
+[dev]
+  command = "yarn bootstrap && yarn dev"
