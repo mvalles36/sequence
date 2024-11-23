@@ -42,7 +42,7 @@
     "@types/faker": "^5.5.5",
     "@types/graphql-depth-limit": "^1.1.2",
     "@types/intercom-client": "^2.11.10",
-    "@types/invariant": "^2.2.34",
+    "@types/invariant": "^2.2.4",
     "@types/jsonwebtoken": "^8.5.1",
     "@types/mailgun-js": "^0.22.11",
     "@types/mocha": "^8.2.2",
