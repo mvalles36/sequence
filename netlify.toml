@@ -1,6 +1,6 @@
 [build]
   base = "packages/ui"
-  command = "lerna bootstrap && lerna dev"
+  command = "yarn bootstrap && yarn dev"
   publish = "packages/ui/.next"
   functions = "packages/ui/netlify/functions"
 
