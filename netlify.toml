@@ -9,7 +9,7 @@
   directory = "packages/api/dist"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "16"
   PORT = "3000"
 
 [[redirects]]
