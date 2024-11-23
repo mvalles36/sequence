@@ -3,7 +3,7 @@
 [build]
   command = "yarn build"
   publish = "packages/api/dist"
-  base = "/"
+  base = "packages/api"
 
 [functions]
   directory = "packages/api/dist"
