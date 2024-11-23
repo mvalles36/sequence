@@ -5,12 +5,12 @@
   publish = "packages/api/dist"
   base = "/"
 
+[functions]
+  directory = "packages/api/dist"
+
 [build.environment]
   NODE_VERSION = "18"
   PORT = "3000"
-
-[[functions]]
-  directory = "packages/api/dist"
 
 [[redirects]]
   from = "/graphql"
