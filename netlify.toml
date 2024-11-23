@@ -1,8 +1,18 @@
+# netlify.toml for API
+
 [build]
-  base = "packages/ui"
-  command = "yarn bootstrap && yarn dev"
-  publish = "packages/ui/.next"
-  functions = "packages/ui/netlify/functions"
+  command = "yarn build"
+  publish = "packages/api/dist"
+  base = "/"
 
 [build.environment]
-  NODE_VERSION = "16"  
+  NODE_VERSION = "18"
+  PORT = "3000"
+
+[[functions]]
+  directory = "packages/api/dist"
+
+[[redirects]]
+  from = "/graphql"
+  to = "/.netlify/functions/api"
+  status = 200
