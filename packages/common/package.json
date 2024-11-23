@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "yarn install"  // This can help ensure dependencies are installed before building.
+    "prepare": "yarn install" 
   },
   "author": "",
   "license": "ISC",
