@@ -1,18 +1,35 @@
-# netlify.toml for API
+# Version of the configuration file
+version = "3"
 
 [build]
+  # Root directory of the project
   command = "yarn build"
-  publish = "packages/api/dist"
-  base = "packages/api"
+  publish = "packages/ui/build" # Adjust based on the UI build output directory
 
-[functions]
-  directory = "packages/api/dist"
+# Deploying the API as a serverless function
+[[functions]]
+  # API endpoint configuration
+  directory = "packages/api/functions" # Adjust based on the serverless function directory
 
-[build.environment]
-  NODE_VERSION = "16"
-  PORT = "3000"
+[[plugins]]
+  package = "@netlify/plugin-docker"
+
+# Environment variables for both UI and API
+[context.production.environment]
+  NODE_ENV = "production"
+  API_URL = "/.netlify/functions/api" # Proxying API through Netlify functions
+  REDIS_URL = "your-redis-connection-url"
+  DATABASE_URL = "your-postgres-connection-url"
+
+# Redirects for API and UI
+[[redirects]]
+  # Proxy requests to the API function
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
 
 [[redirects]]
-  from = "/graphql"
-  to = "/.netlify/functions/api"
+  # Serve UI from the root
+  from = "/*"
+  to = "/index.html"
   status = 200
