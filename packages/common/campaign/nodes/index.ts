@@ -6,6 +6,7 @@ import Wait from "./waitCampaignNode";
 export * from "./abstractCampaignNode";
 export * from "./baseAudienceCampaignNode";
 import Edge from "./campaignNodeEdge";
+import Call from "./callCampaignNode";
 
 export const Campaign = {
   Trigger,
@@ -13,6 +14,7 @@ export const Campaign = {
   Email,
   Filter,
   Wait,
+  Call,
 };
 
 export { Edge };
