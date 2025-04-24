@@ -11,7 +11,7 @@ const OnboardingPage = () => {
       <OnboardingLayout index={0}>
         <div className="content">
           <h1>Welcome to Sequence!</h1>
-          <p>Sequence is an open-core email marketing automation platform.</p>
+          <p>Sequence is a Sales Enablement platform powered by AI</p>
           <p>Setup is simple:</p>
 
           <div className={classnames(styles.onboarding_box_row)}>
@@ -33,11 +33,23 @@ const OnboardingPage = () => {
                 styles.onboarding_box_blue
               )}
             >
-              <div className={styles.onboarding_box_number}>2.</div>
+               <div className={styles.onboarding_box_number}>2.</div>
+              <div className={styles.onboarding_box_content}>
+                Create <br />
+                AI Cold Calls
+              </div>
+            </div>
+            <div
+              className={classnames(
+                styles.onboarding_box,
+                styles.onboarding_box_blue
+              )}
+            >
+              <div className={styles.onboarding_box_number}>3.</div>
               <div className={styles.onboarding_box_content}>
                 Segment <br />
                 Your <br />
-                Users
+                Leads
               </div>
             </div>
             <div
@@ -46,7 +58,7 @@ const OnboardingPage = () => {
                 styles.onboarding_box_purple
               )}
             >
-              <div className={styles.onboarding_box_number}>3.</div>
+              <div className={styles.onboarding_box_number}>4.</div>
               <div className={styles.onboarding_box_content}>
                 Send an
                 <br /> Email <br />
