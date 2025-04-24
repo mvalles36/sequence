@@ -1,13 +1,16 @@
+// packages/common/campaign/deserialize.ts
 import AbstractCampaignNode from "./nodes/abstractCampaignNode";
 import AudienceCampaignNode from "./nodes/audienceCampaignNode";
 import EmailCampaignNode from "./nodes/emailCampaignNode";
 import FilterCampaignNode from "./nodes/filterCampaignNode";
 import TriggerCampaignNode from "./nodes/triggerCampaignNode";
 import WaitCampaignNode from "./nodes/waitCampaignNode";
+import CallCampaignNode from "./nodes/callCampaignNode"; // Added import for CallCampaignNode
 import {
   CampaignAudienceRules,
   CampaignEmailScheduling,
   CampaignNodeKind,
+  CallCampaignNodeJson, // Added import for CallCampaignNodeJson
 } from "./types";
 
 interface SerializedCampaignNode {
@@ -83,6 +86,13 @@ export const deserialize = (node: SerializedCampaignNode) => {
       let waitJson = node.json as WaitCampaignNodeJson;
       deserializedNode = WaitCampaignNode.new().setDays(waitJson.days);
       break;
+    case CampaignNodeKind.OutboundCall: // Added case for OutboundCall
+      let callJson = node.json as CallCampaignNodeJson;
+      deserializedNode = CallCampaignNode.new()
+        .setCallScriptId(callJson.callScriptId)
+        .setSchedulingType(callJson.schedulingType)
+        .setCallerId(callJson.callerId);
+      break;
   }
   return deserializedNode
     .setId(node.id)
@@ -132,5 +142,13 @@ export const serialize = (node: AbstractCampaignNode) => {
         days: waitNode.getDays()!,
       };
       return waitNode;
+    case CampaignNodeKind.OutboundCall: // Added case for OutboundCall
+      const callNode = node as CallCampaignNode;
+      callNode.json = {
+        callScriptId: callNode.getCallScriptId(),
+        schedulingType: callNode.getSchedulingType(),
+        callerId: callNode.getCallerId(),
+      };
+      return callNode;
   }
 };
