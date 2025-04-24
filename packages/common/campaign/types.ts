@@ -1,3 +1,4 @@
+
 import { Edge } from "./nodes";
 import AbstractCampaignNode from "./nodes/abstractCampaignNode";
 import AudienceCampaignNode from "./nodes/audienceCampaignNode";
@@ -12,6 +13,7 @@ export enum CampaignNodeKind {
   Filter = "Filter",
   Wait = "Wait",
   Email = "Email",
+  OutboundCall = "OutboundCall", // Added OutboundCall node kind
 }
 
 export type EntryNodeKinds = TriggerCampaignNode | AudienceCampaignNode;
@@ -59,3 +61,10 @@ export type CustomEdge = {
 };
 
 export type CampaignGraphEdges = Record<CampaignNodeEdgeId, Edge>;
+
+// Added new interface for OutboundCall node JSON
+export interface CallCampaignNodeJson {
+  callScriptId?: string;
+  schedulingType?: string;
+  callerId?: string;
+}
